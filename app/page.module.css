@@ -9,9 +9,32 @@
   width: 50%;
   margin: 0 auto;
   height: auto;
-  margin-top: -40px;
+  margin-top: 0px;
 }
 
+.divNewPrincipal{
+  width: 100%;
+  height:80vh;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-around;
+}
+
+.divNew{
+  height: 100%;
+  width: 55%;
+  text-align: left;
+}
+
+.divimg{
+  height: 100%;
+  width: 40%;
+}
+
+.divimg img{
+  width: 100%;
+  height: auto;
+}
 
 .title{
    margin-top: 100px;
@@ -65,11 +88,16 @@
   width: 60%;
   border: 1px solid gainsboro;
   margin: 0 auto;
+  position: relative;
+  top: 0px;
 }
 
 
 
 @media screen and (max-width: 786px) {
+  .divNewPrincipal{
+    display: none;
+  }
   .divTitle {
     width: 90%; 
   }

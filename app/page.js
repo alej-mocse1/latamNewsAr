@@ -1,8 +1,11 @@
 import Image from 'next/image';
 import styles from './page.module.css';
+// import ImgPrinc from "./assets/imgNews.jpg"
 import Image2da from './assets/img2TextoAlternativo.jpg';
 import New from './components/News/News';
 import TextoHome from './components/divTextoHome/textoHome';
+import Link from 'next/link';
+
 
 async function getData() {
   try {
@@ -32,6 +35,7 @@ const Home = async() => {
         </p>
       </div>
 
+
       <div className={styles.infoPresentacion}>
         <div className={styles.DIVimgAlternativo}>
           <Image
@@ -44,15 +48,32 @@ const Home = async() => {
           />
         </div>
             <TextoHome  
-            text={"Sports"} 
-            textP={"Explore the most comprehensive coverage of sporting events, breaking news, and in-depth analysis."}
-          
-            text2={"technology"} 
-            textP2={"You will find the latest innovations, devices, applications and technological trends."} 
+              text={"Sports"} 
+              textP={"Explore the most comprehensive coverage of sporting events, breaking news, and in-depth analysis."}
+            
+              text2={"technology"} 
+              textP2={"You will find the latest innovations, devices, applications and technological trends."} 
 
-            text3={"business"} 
-            textP3={"Explore in-depth articles on economic trends, investment advice, and market analysis.."}
+              text3={"business"} 
+              textP3={"Explore in-depth articles on economic trends, investment advice, and market analysis.."}
             ></TextoHome>
+      </div>
+
+      
+      <div className={styles.divNewPrincipal}>
+        <div className={styles.divNew}>
+           <Link href={data[0].url} target="_blank">
+              <h3>{data[0].title}</h3>
+           </Link>
+           <p>{data[0].description}</p>
+
+           <h6>{data[0].publishedAt.slice(0, 10)}</h6>
+
+        </div>
+
+         <div className={styles.divimg}>
+           <img src={data[0].urlToImage}/>
+        </div>
       </div>
 
       <div className={styles.divDivisor}></div>
