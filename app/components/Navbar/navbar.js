@@ -1,8 +1,8 @@
 "use client";
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import Link from 'next/link';
-import styles from "./navbar.module.css"
 
 
 export default function Navbar() {
