@@ -16,12 +16,12 @@ const New = async ({data}) => {
           <div className={styles.DIVimgNew}>
             <img
               src={elem.urlToImage}
-              alt={`image is ${elem.description}`}
-              layout="responsive"
+              alt={elem.description}
+              layout='responsive'
             />
           </div>
           <div className={styles.DIVinfoNew}>
-            <Link href={elem.url} target="_blank">
+            <Link href={elem.url} target='_blank'>
               <h2>{elem.title}</h2>
             </Link>
             <p>{elem.description}</p>

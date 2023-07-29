@@ -3,7 +3,7 @@
     flex-wrap: wrap;
     justify-content: space-between;
     width: 100%;
-    margin-top: 50px;
+    margin-top: 0px;
 }
 
 .divNew{
@@ -12,13 +12,12 @@
     justify-content: space-around;
     align-items: center;
     width: 50%;
-    margin-top: 30px;
+    margin-bottom: 35px;
 }
 
 .DIVimgNew{
     width: 50%;
     height: 100%;
-
 }
 
 .DIVimgNew img{

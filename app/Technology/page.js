@@ -1,17 +1,21 @@
-import styles from "./technology.module.css"
-import Image from "next/image";
-import Img from "../assets/imgTech.jpg";
-import TextoHome from "../components/divTextoHome/textoHome";
-import New from "../components/News/News";
+import styles from './technology.module.css'
+import Image from 'next/image';
+import Img from "../assets/img2TextoAlternativo.jpg";
+import TextoHome from '../components/divTextoHome/textoHome';
+import New from '../components/News/News';
 
 async function getData() {
     try {
-      const resp = await fetch("https://newsapi.org/v2/top-headlines?country=us&category=technology&apiKey=0a27aef7945e4cdbac3d9e90542ecaf6");
+      const resp = await fetch('https://newsapi.org/v2/top-headlines?country=us&category=technology&apiKey=0a27aef7945e4cdbac3d9e90542ecaf6',{
+        next:{
+          revalidate: 3600 
+        }
+      });
       const { articles } = await resp.json();
   
       return articles;
     } catch (error) {
-      console.log(error);
+    console.log(error);
     }
   }
 
@@ -46,14 +50,14 @@ const  Page = async() => {
                     />
                     </div>
                         <TextoHome  
-                        text={"Technological advances"} 
-                        textP={"the latest technological advances in different fields, such as artificial intelligence, robotics, biotechnology."}
+                        text={'Technological advances'} 
+                        textP={'the latest technological advances in different fields, such as artificial intelligence, robotics, biotechnology.'}
                     
-                        text2={"Applications"} 
-                        textP2={"analysis of the most popular mobile applications and the newest gadgets on the market."} 
+                        text2={'Applications'} 
+                        textP2={'analysis of the most popular mobile applications and the newest gadgets on the market.'} 
 
-                        text3={"Programming"} 
-                        textP3={"Explore current trends in the world of programming, such as new programming languages, frameworks, development tools, and agile development approaches."}
+                        text3={'Programming'} 
+                        textP3={'Explore current trends in the world of programming, such as new programming languages, frameworks, development tools, and agile development approaches.'}
                         ></TextoHome>
                 </div>
 

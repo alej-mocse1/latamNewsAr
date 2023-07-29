@@ -1,7 +1,14 @@
 import { Inter } from 'next/font/google';
-import Footer from './components/Footer/Footer';
-import Navbar from './components/Navbar/navbar';
+import dynamic from 'next/dynamic';
 
+// Carga el Navbar y el Footer dinámicamente solo en el cliente
+const Navbar = dynamic(() => import('./components/Navbar/navbar'), {
+  ssr: false,
+});
+
+const Footer = dynamic(() => import('./components/Footer/Footer'), {
+  ssr: false,
+});
 
 const inter = Inter({ subsets: ['latin'] })
 

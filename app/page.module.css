@@ -14,10 +14,11 @@
 
 .divNewPrincipal{
   width: 100%;
-  height:80vh;
+  height:60vh;
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-around;
+  margin-bottom: 60px;
 }
 
 .divNew{

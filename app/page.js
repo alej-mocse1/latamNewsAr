@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import styles from './page.module.css';
-// import ImgPrinc from "./assets/imgNews.jpg"
-import Image2da from './assets/img2TextoAlternativo.jpg';
+import Image2da from './assets/imgPrincp.jpg';
 import New from './components/News/News';
 import TextoHome from './components/divTextoHome/textoHome';
 import Link from 'next/link';
@@ -9,7 +8,11 @@ import Link from 'next/link';
 
 async function getData() {
   try {
-    const resp = await fetch("https://newsapi.org/v2/top-headlines?country=us&apiKey=0a27aef7945e4cdbac3d9e90542ecaf6");
+  const resp = await fetch('https://newsapi.org/v2/top-headlines?country=us&apiKey=0a27aef7945e4cdbac3d9e90542ecaf6',{
+    next:{
+      revalidate: 3600 
+    }
+  });
     const { articles } = await resp.json();
 
     return articles;
@@ -40,29 +43,29 @@ const Home = async() => {
         <div className={styles.DIVimgAlternativo}>
           <Image
             src={Image2da}
-            alt="My Image"
-            layout="responsive"
+            alt='My Image'
+            layout='responsive'
             width={300}
             height={300}
             
           />
         </div>
             <TextoHome  
-              text={"Sports"} 
-              textP={"Explore the most comprehensive coverage of sporting events, breaking news, and in-depth analysis."}
+              text={'Sports'} 
+              textP={'Explore the most comprehensive coverage of sporting events, breaking news, and in-depth analysis.'}
             
-              text2={"technology"} 
-              textP2={"You will find the latest innovations, devices, applications and technological trends."} 
+              text2={'technology'} 
+              textP2={'You will find the latest innovations, devices, applications and technological trends.'} 
 
-              text3={"business"} 
-              textP3={"Explore in-depth articles on economic trends, investment advice, and market analysis.."}
+              text3={'business'} 
+              textP3={'Explore in-depth articles on economic trends, investment advice, and market analysis..'}
             ></TextoHome>
       </div>
 
       
       <div className={styles.divNewPrincipal}>
         <div className={styles.divNew}>
-           <Link href={data[0].url} target="_blank">
+           <Link href={data[0].url} target='_blank'>
               <h3>{data[0].title}</h3>
            </Link>
            <p>{data[0].description}</p>
@@ -76,7 +79,7 @@ const Home = async() => {
         </div>
       </div>
 
-      <div className={styles.divDivisor}></div>
+      {/* <div className={styles.divDivisor}></div> */}
       <New data={data}/>
     </main>
   );

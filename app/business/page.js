@@ -8,7 +8,11 @@ import New from "../components/News/News";
 
 async function getData() {
     try {
-      const resp = await fetch("https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=0a27aef7945e4cdbac3d9e90542ecaf6");
+      const resp = await fetch("https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=0a27aef7945e4cdbac3d9e90542ecaf6",{
+        next:{
+          revalidate: 3600 
+        }
+      });
       const { articles } = await resp.json();
   
       return articles;
