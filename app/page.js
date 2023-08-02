@@ -10,9 +10,9 @@ async function getData() {
   try {
   const resp = await fetch('https://newsapi.org/v2/top-headlines?country=us&apiKey=0a27aef7945e4cdbac3d9e90542ecaf6',{
     next:{
-      revalidate: 3600 
+      revalidate: 300
     }
-  });
+  })
     const { articles } = await resp.json();
 
     return articles;
@@ -70,7 +70,7 @@ const Home = async() => {
            </Link>
            <p>{data[0].description}</p>
 
-           <h6>{data[0].publishedAt.slice(0, 10)}</h6>
+           <h6 className={styles.divh6}>{data[0].publishedAt.slice(0, 10)}</h6>
 
         </div>
 

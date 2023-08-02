@@ -8,7 +8,7 @@ async function getData() {
     try {
       const resp = await fetch("https://newsapi.org/v2/top-headlines?country=us&category=Sports&apiKey=0a27aef7945e4cdbac3d9e90542ecaf6",{
         next:{
-          revalidate: 3600 
+          revalidate: 300 
         }
       });
       const { articles } = await resp.json();
